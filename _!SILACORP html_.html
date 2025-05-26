@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organización SILACORP - Cursos de Brigadas de Emergencia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Un azul muy suave para el fondo */
+        }
+        /* Estilos personalizados para el botón de WhatsApp */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+        }
+        /* Estilo para el mensaje de éxito */
+        .success-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #4CAF50; /* Verde */
+            color: white;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            display: none; /* Oculto por defecto */
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        /* Estilo para el campo de subida de archivo */
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+            cursor: pointer;
+        }
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+        .file-input-button {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #3b82f6; /* Azul de Tailwind */
+            color: white;
+            border-radius: 0.375rem; /* rounded-md */
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .file-input-button:hover {
+            background-color: #2563eb; /* Azul más oscuro */
+        }
+        .file-name {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: #4a5568; /* gray-700 */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div id="successMessage" class="success-message">
+        ¡Te has inscrito correctamente!
+    </div>
+
+    <a href="https://wa.me/521234567890" target="_blank" class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <header class="bg-red-700 text-white py-6 shadow-lg">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4">
+            <div class="mb-4 md:mb-0">
+                <img src="https://github.com/74123658/SILACORP/blob/main/ChatGPT%20Image%2025%20may%202025%2C%2017_14_46.png?raw=true" alt="Logo de SILACORP" class="h-12 w-auto rounded-lg">
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-center md:text-right leading-tight">
+                Organización <span class="text-blue-300">SILACORP</span>
+            </h1>
+        </div>
+    </header>
+
+    <main class="container mx-auto my-10 p-6 bg-white rounded-lg shadow-xl border border-blue-100">
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-red-700 mb-6 text-center">Sobre Nosotros</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-blue-50 p-6 rounded-lg shadow-md border border-blue-100">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3 flex items-center">
+                        <i class="fas fa-bullseye text-red-500 mr-3"></i>Misión
+                    </h3>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Nuestra misión es capacitar a individuos y organizaciones con conocimientos y habilidades esenciales para la prevención y respuesta efectiva ante situaciones de emergencia, promoviendo una cultura de seguridad y protección civil.
+                    </p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg shadow-md border border-blue-100">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3 flex items-center">
+                        <i class="fas fa-eye text-red-500 mr-3"></i>Visión
+                    </h3>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Ser la organización líder en capacitación de brigadas de emergencia a nivel nacional, reconocida por la excelencia de nuestros programas, la calidad de nuestros instructores y el impacto positivo en la seguridad de la comunidad.
+                    </p>
+                </div>
+                <div class="md:col-span-2 bg-blue-50 p-6 rounded-lg shadow-md border border-blue-100">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3 flex items-center">
+                        <i class="fas fa-hand-holding-heart text-red-500 mr-3"></i>Valores
+                    </h3>
+                    <ul class="list-disc list-inside text-lg text-gray-700 leading-relaxed space-y-2">
+                        <li><span class="font-medium text-red-600">Compromiso:</span> Con la seguridad y el bienestar de las personas.</li>
+                        <li><span class="font-medium text-red-600">Excelencia:</span> En la impartición de nuestros cursos y en la formación de nuestros brigadistas.</li>
+                        <li><span class="font-medium text-red-600">Integridad:</span> Actuando con honestidad y ética en todo momento.</li>
+                        <li><span class="font-medium text-red-600">Solidaridad:</span> Fomentando el apoyo mutuo en situaciones críticas.</li>
+                        <li><span class="font-medium text-red-600">Innovación:</span> Adaptando nuestros programas a las últimas técnicas y normativas.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-red-700 mb-6 text-center">Nuestros Cursos y Objetivo</h2>
+            <div class="bg-red-50 p-6 rounded-lg shadow-md border border-red-100">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-3 flex items-center">
+                    <i class="fas fa-graduation-cap text-blue-500 mr-3"></i>Cursos Ofrecidos
+                </h3>
+                <ul class="list-disc list-inside text-lg text-gray-700 leading-relaxed space-y-2 mb-6">
+                    <li><span class="font-medium text-blue-600">Brigada de Emergencias:</span> Formación integral para la gestión de crisis y respuesta a incidentes.</li>
+                    <li><span class="font-medium text-blue-600">Primeros Auxilios:</span> Técnicas básicas y avanzadas para la atención inmediata de lesiones y enfermedades.</li>
+                    <li><span class="font-medium text-blue-600">Combate Contra Incendios:</span> Prevención, control y extinción de fuegos, uso de equipos y procedimientos de evacuación.</li>
+                </ul>
+                <h3 class="text-2xl font-semibold text-gray-900 mb-3 flex items-center">
+                    <i class="fas fa-clipboard-check text-blue-500 mr-3"></i>Objetivo del Curso
+                </h3>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    El objetivo principal de nuestros cursos es proporcionar a los participantes las competencias necesarias para actuar de manera eficaz y segura en situaciones de emergencia, minimizando riesgos y salvaguardando vidas y bienes. Buscamos fomentar líderes capaces de organizar y ejecutar planes de respuesta en cualquier entorno.
+                </p>
+            </div>
+        </section>
+
+        <section id="inscripcion-form" class="bg-white p-8 rounded-lg shadow-2xl border border-red-200">
+            <h2 class="text-3xl font-bold text-red-700 mb-8 text-center">Formulario de Inscripción al Curso</h2>
+            <form id="registrationForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="nombre" class="block text-lg font-medium text-gray-700 mb-2">Nombre Completo <span class="text-red-500">*</span>:</label>
+                    <input type="text" id="nombre" name="nombre" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-lg" required>
+                </div>
+                <div>
+                    <label for="fechaNacimiento" class="block text-lg font-medium text-gray-700 mb-2">Fecha de Nacimiento <span class="text-red-500">*</span>:</label>
+                    <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-lg" required>
+                </div>
+                <div>
+                    <label for="curso" class="block text-lg font-medium text-gray-700 mb-2">Selecciona el curso <span class="text-red-500">*</span>:</label>
+                    <select id="curso" name="curso" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-lg" required>
+                        <option value="">-- Selecciona un curso --</option>
+                        <option value="Brigada de Emergencias">Brigada de Emergencias</option>
+                        <option value="Primeros Auxilios">Primeros Auxilios</option>
+                        <option value="Combate Contra Incendios">Combate Contra Incendios</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="modalidad" class="block text-lg font-medium text-gray-700 mb-2">Modalidad del curso <span class="text-red-500">*</span>:</label>
+                    <select id="modalidad" name="modalidad" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-lg" required>
+                        <option value="">-- Selecciona una modalidad --</option>
+                        <option value="Presencial">Presencial</option>
+                        <option value="Virtual">Virtual</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="telefono" class="block text-lg font-medium text-gray-700 mb-2">Teléfono (10 dígitos) <span class="text-red-500">*</span>:</label>
+                    <input type="tel" id="telefono" name="telefono" maxlength="10" pattern="[0-9]{10}" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-lg" placeholder="Ej: 5512345678" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-lg font-medium text-gray-700 mb-2">E-mail <span class="text-red-500">*</span>:</label>
+                    <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-lg" required>
+                </div>
+                <div>
+                    <label for="ciudad" class="block text-lg font-medium text-gray-700 mb-2">Ciudad <span class="text-red-500">*</span>:</label>
+                    <input type="text" id="ciudad" name="ciudad" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-lg" required>
+                </div>
+                <div>
+                    <label for="estado" class="block text-lg font-medium text-gray-700 mb-2">Estado <span class="text-red-500">*</span>:</label>
+                    <select id="estado" name="estado" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-lg" required>
+                        <option value="">-- Selecciona un estado --</option>
+                        </select>
+                </div>
+                <div class="md:col-span-2">
+                    <label for="cvUpload" class="block text-lg font-medium text-gray-700 mb-2">Subir CV (PDF, DOC, DOCX) <span class="text-red-500">*</span>:</label>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="cvUpload" name="cvUpload" accept=".pdf,.doc,.docx" required>
+                        <div class="file-input-button">
+                            <i class="fas fa-upload mr-2"></i>Seleccionar Archivo
+                        </div>
+                    </div>
+                    <span id="cvFileName" class="file-name">Ningún archivo seleccionado</span>
+                </div>
+                <div class="md:col-span-2">
+                    <label for="comentarios" class="block text-lg font-medium text-gray-700 mb-2">Comentarios:</label>
+                    <textarea id="comentarios" name="comentarios" rows="4" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-lg"></textarea>
+                </div>
+
+                <div class="md:col-span-2 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
+                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75">
+                        <i class="fas fa-paper-plane mr-2"></i>Generar Inscripción
+                    </button>
+                    <button type="button" id="exportPdfBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75">
+                        <i class="fas fa-file-pdf mr-2"></i>Exportar Recibo (PDF)
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-red-700 text-white py-8 mt-12">
+        <div class="container mx-auto flex flex-col items-center px-4">
+            <p class="text-lg mb-4 text-center">&copy; 2025 Organización SILACORP. Todos los derechos reservados.</p>
+            <div class="flex space-x-6 text-3xl">
+                <a href="#" target="_blank" class="hover:text-blue-300 transition-colors duration-300" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" target="_blank" class="hover:text-blue-300 transition-colors duration-300" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" target="_blank" class="hover:text-blue-300 transition-colors duration-300" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="#" target="_blank" class="hover:text-blue-300 transition-colors duration-300" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+            <p class="text-sm mt-4 text-center">
+                <i class="fas fa-map-marker-alt mr-2"></i>México
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+        // Inicializa jsPDF
+        const { jsPDF } = window.jspdf;
+
+        // Lista de estados de México
+        const estadosMexico = [
+            "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua",
+            "Coahuila de Zaragoza", "Colima", "Ciudad de México", "Durango", "Guanajuato", "Guerrero",
+            "Hidalgo", "Jalisco", "México", "Michoacán de Ocampo", "Morelos", "Nayarit", "Nuevo León",
+            "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora",
+            "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz de Ignacio de la Llave", "Yucatán", "Zacatecas"
+        ].sort(); // Ordenar alfabéticamente
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const registrationForm = document.getElementById('registrationForm');
+            const successMessage = document.getElementById('successMessage');
+            const exportPdfBtn = document.getElementById('exportPdfBtn');
+            const estadoSelect = document.getElementById('estado');
+            const cvUploadInput = document.getElementById('cvUpload');
+            const cvFileNameSpan = document.getElementById('cvFileName');
+
+            // Llenar el select de estados
+            estadosMexico.forEach(estado => {
+                const option = document.createElement('option');
+                option.value = estado;
+                option.textContent = estado;
+                estadoSelect.appendChild(option);
+            });
+
+            // Actualizar el nombre del archivo CV seleccionado
+            cvUploadInput.addEventListener('change', () => {
+                if (cvUploadInput.files.length > 0) {
+                    cvFileNameSpan.textContent = cvUploadInput.files[0].name;
+                } else {
+                    cvFileNameSpan.textContent = 'Ningún archivo seleccionado';
+                }
+            });
+
+            // Manejo del envío del formulario
+            registrationForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Previene el envío por defecto del formulario
+
+                // Validar que el archivo CV ha sido seleccionado
+                if (cvUploadInput.files.length === 0) {
+                    // En un entorno real, aquí podrías mostrar un mensaje de error al usuario
+                    // Por simplicidad, el atributo 'required' del input ya maneja esto por defecto
+                    console.error("Por favor, sube tu CV.");
+                    return; // Detener el envío si no hay CV
+                }
+
+                // Mostrar mensaje de éxito
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000); // Ocultar después de 3 segundos
+
+                // Limpiar el formulario
+                registrationForm.reset();
+                cvFileNameSpan.textContent = 'Ningún archivo seleccionado'; // Resetear también el nombre del archivo
+            });
+
+            // Manejo de la exportación a PDF
+            exportPdfBtn.addEventListener('click', () => {
+                const formElements = registrationForm.elements;
+                const data = {};
+
+                // Recopilar datos del formulario
+                for (let i = 0; i < formElements.length; i++) {
+                    const element = formElements[i];
+                    // Excluir el campo de archivo del PDF, ya que solo se guarda el nombre
+                    if (element.name && element.type !== 'file') {
+                        data[element.name] = element.value;
+                    }
+                }
+                // Añadir el nombre del archivo CV al objeto de datos para el PDF
+                data['cvFileName'] = cvUploadInput.files.length > 0 ? cvUploadInput.files[0].name : 'No se subió CV';
+
+
+                // Crear un nuevo documento PDF
+                const doc = new jsPDF();
+                let yPos = 20; // Posición inicial Y
+
+                doc.setFontSize(22);
+                doc.setTextColor(178, 34, 34); // Rojo oscuro
+                doc.text("Recibo de Inscripción - SILACORP", 105, yPos, { align: "center" });
+                yPos += 15;
+
+                doc.setFontSize(12);
+                doc.setTextColor(0, 0, 0); // Negro
+
+                // Añadir los datos al PDF
+                doc.text(`Nombre: ${data.nombre}`, 20, yPos);
+                yPos += 10;
+                doc.text(`Fecha de Nacimiento: ${data.fechaNacimiento}`, 20, yPos);
+                yPos += 10;
+                doc.text(`Curso: ${data.curso}`, 20, yPos);
+                yPos += 10;
+                doc.text(`Modalidad: ${data.modalidad}`, 20, yPos);
+                yPos += 10;
+                doc.text(`Teléfono: ${data.telefono}`, 20, yPos);
+                yPos += 10;
+                doc.text(`E-mail: ${data.email}`, 20, yPos);
+                yPos += 10;
+                doc.text(`Ciudad: ${data.ciudad}`, 20, yPos);
+                yPos += 10;
+                doc.text(`Estado: ${data.estado}`, 20, yPos);
+                yPos += 10;
+                doc.text(`CV Subido: ${data.cvFileName}`, 20, yPos); // Mostrar el nombre del archivo CV
+                yPos += 10;
+                doc.text(`Comentarios: ${data.comentarios || 'N/A'}`, 20, yPos);
+                yPos += 20;
+
+                doc.setFontSize(10);
+                doc.setTextColor(100, 100, 100); // Gris
+                doc.text("Gracias por inscribirte a nuestros cursos. ¡Te esperamos!", 105, yPos, { align: "center" });
+
+                // Guardar el PDF
+                doc.save(`Recibo_Inscripcion_${data.nombre.replace(/\s/g, '_')}.pdf`);
+            });
+        });
+    </script>
+</body>
+</html>
